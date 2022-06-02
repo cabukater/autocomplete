@@ -17,6 +17,6 @@ export class PostService {
   getData() {
     return this.opts.length ?
      of(this.opts):
-     this.http.get<any>('https://jsonplaceholder.typicode.com/users').pipe(tap(data => this.opts = data))
+     this.http.get<any>('https://run.mocky.io/v3/9c14e871-0764-41b7-9d13-dd373766076e').pipe(tap(data => this.opts = data))
   }
 }

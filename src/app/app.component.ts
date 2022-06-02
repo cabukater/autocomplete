@@ -14,7 +14,6 @@ export class AppComponent {
   options = [];
   filteredOptions: Observable<any[]>;
 
-
   constructor(private service: PostService) {
     this.filteredOptions = this.myControl.valueChanges.pipe(
      startWith(''),
@@ -27,11 +26,10 @@ export class AppComponent {
   }
 
   filter(val: string): Observable<any[]> {
-
     return this.service.getData()
      .pipe(
-       map(response => response.filter((option: { name: string; }) => {
-         return option.name.toLowerCase().indexOf(val.toLowerCase()) === 0
+       map(response => response.filter((option: { agencia: string; }) => {
+         return option.agencia.toLowerCase().indexOf(val.toLowerCase()) === 0
        }))
      )
    }
